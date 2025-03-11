@@ -1,42 +1,108 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: rgb(212, 206, 19);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: #222;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 350px;
+
+}
+
+.search-bar label {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(212, 206, 19);
+  margin-bottom: 5px;
+}
+
+.search-bar input {
+  width: 250px;
+  padding: 10px;
+  border: 2px solid rgb(212, 206, 19);
+  color: white;
+  background-color: #333;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.search-bar input:focus {
+  border-color: white;
+}
+
+.search-status {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #222;
+  color:rgb(212, 206, 19);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 20px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.pokemon-card h2 {
+  font-size: 22px;
+  color: rgb(212, 206, 19);
+  text-transform: capitalize;
+  margin-bottom: 10px;
 }
 
-.card {
-  padding: 2em;
+.pokemon-card img {
+  width: 120px;
+  height: 120px;
+  border: 3px solid rgb(212, 206, 19);
+  border-radius: 8px;
+  object-fit: contain;
 }
 
-.read-the-docs {
-  color: #888;
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(212, 206, 19);
+  background-color: #440000;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid rgb(212, 206, 19);
+  border-radius: 5px;
+  max-width: 300px;
 }
