@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "../App.module.css";
 
 function SearchBar({ searchPok, handleChange }) {
   return (
     <>
-      <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
+      <form className={styles.searchBar} onSubmit={(e) => e.preventDefault()}>
         <label htmlFor="pokemon-search">Nombre:</label>
         <input
           type="text"

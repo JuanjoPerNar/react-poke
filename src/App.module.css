@@ -19,7 +19,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-.search-bar {
+.searchBar {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,17 +29,16 @@ h1 {
   border-radius: 8px;
   padding: 20px;
   max-width: 350px;
-
 }
 
-.search-bar label {
+.searchBar label {
   font-size: 18px;
   font-weight: bold;
   color: rgb(212, 206, 19);
   margin-bottom: 5px;
 }
 
-.search-bar input {
+.searchBar input {
   width: 250px;
   padding: 10px;
   border: 2px solid rgb(212, 206, 19);
@@ -50,18 +49,18 @@ h1 {
   transition: border-color 0.2s ease-in-out;
 }
 
-.search-bar input:focus {
+.searchBar input:focus {
   border-color: white;
 }
 
-.search-status {
+.searchStatus {
   font-size: 16px;
   color: #555;
   margin-top: 10px;
   text-align: center;
 }
 
-.pokemon-card {
+.pokemonCard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,14 +75,14 @@ h1 {
   margin: 20px auto;
 }
 
-.pokemon-card h2 {
+.pokemonCard h2 {
   font-size: 22px;
   color: rgb(212, 206, 19);
   text-transform: capitalize;
   margin-bottom: 10px;
 }
 
-.pokemon-card img {
+.pokemonCard img {
   width: 120px;
   height: 120px;
   border: 3px solid rgb(212, 206, 19);
@@ -91,7 +90,7 @@ h1 {
   object-fit: contain;
 }
 
-.error-message {
+.errorMessage {
   display: flex;
   justify-content: center;
   align-items: center;

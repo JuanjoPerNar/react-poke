@@ -1,29 +1,34 @@
 import { useState, useEffect } from "react";
-import './App.css';
 import SearchBar from "./components/SearchBar";
 import PokemonCard from "./components/PokemonCard";
 import ErrorMessage from "./components/ErrorMessage";
+import styles from "./App.module.css";
 
 function App() {
-  const [searchPok, setSearchPok] = useState('');
-  const [pokemon, setPokemon] = useState(null);
-  const [error, setError] = useState(null);
+  const [searchPok, setSearchPok] = useState("")
+  const [pokemon, setPokemon] = useState(null)
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   function handleChange(e) {
-    setSearchPok(e.target.value.toLowerCase());
+    setSearchPok(e.target.value.toLowerCase())
   }
 
   useEffect(() => {
-    if (searchPok === '') {
-      setPokemon(null);
-      setError(null);
+    if (searchPok === "") {
+      setPokemon(null)
+      setError(null)
+      setLoading(false)
       return;
     }
 
     const fetchPokemon = async () => {
+      setLoading(true)
       try {
-        setError(null);
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${searchPok}`);
+        setError(null)
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${searchPok}`
+        );
         if (!response.ok) {
           throw new Error("Pokémon no encontrado");
         }
@@ -33,34 +38,29 @@ function App() {
           image: data.sprites.front_default,
         });
       } catch (error) {
-        setPokemon(null);
-        setError(error.message);
+        setPokemon(null)
+        setError(error.message)
+      } finally {
+        setLoading(false)
       }
     };
-    fetchPokemon();
-  }, [searchPok]);
 
-  const renderPokemon = () => {
-    if (error) {
-      return <ErrorMessage error={error} />
-    }
-    if (pokemon) {
-      return <PokemonCard pokemon={pokemon} />
-    }
-    return <p>Escribe un nombre para buscar un Pokémon</p>
-  }
+    fetchPokemon()
+  }, [searchPok])
 
   return (
     <>
-      <h1>Buscador de Pokémon</h1>
+      <h1 className={styles.title}>Buscador de Pokémon</h1>
 
-      <SearchBar earchPok={searchPok} handleChange={handleChange} />
+      <SearchBar searchPok={searchPok} handleChange={handleChange} />
 
-      <p className="search-status">Buscando: {searchPok}</p>
+      <p className={styles.searchStatus}>Buscando: {searchPok}</p>
 
-      {renderPokemon()}
+      {loading && <p className={styles.loadingMessage}>Buscando Pokémon...</p>}
+      {error && <ErrorMessage error={error} />}
+      {pokemon && <PokemonCard pokemon={pokemon} />}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
